@@ -1,11 +1,12 @@
 import { getNodePositionWithOrigin, useReactFlow } from 'reactflow';
+import * as mapping from '../data/werkstatt.json';
 
 let actorNodes = [];
 let systemNodes = [];
 let workObjectNodes = [];
 
-export const createActors = (actors) => {
-
+export const createActors = () => {
+    actorNodes = [];
     const type = "iconNode";
     // Icon from the Icon-Set of Egon.io
     const icon = "Person";
@@ -18,7 +19,7 @@ export const createActors = (actors) => {
     }
 
     // Get all actors from the mapping
-    actors.forEach((actor) => {
+    mapping.actors.forEach((actor) => {
 
         // Create Node with target-handle
         const newNode = {
@@ -37,7 +38,7 @@ export const createActors = (actors) => {
 }
 
 // Getting Systems
-export const createSystems = (systems) => {
+export const createSystems = () => {
     systemNodes = [];
     const type = "iconNode";
     const icon = "System";
@@ -46,7 +47,7 @@ export const createSystems = (systems) => {
         y: 0
     }
 
-    systems.forEach((system) => {
+    mapping.systems.forEach((system) => {
         const newNode = {
             id: `system_${system.system_id}`,
             type,
@@ -64,12 +65,12 @@ export const createSystems = (systems) => {
 
 
 // Getting Workobjects of Activitys
-export const createWorkobjects = (systems) => {
+export const createWorkobjects = () => {
     workObjectNodes = [];
     const type = "iconNode";
     const icon = "Document";
 
-    systems.forEach((mappingSystem) => {
+    mapping.systems.forEach((mappingSystem) => {
 
         let position = {
             x: 100,

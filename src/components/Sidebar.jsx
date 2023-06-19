@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import Icon from '../nodes/nodeComponents/Icon';
 import LoadTestMenu from './LoadTestMenu';
 import { useEdges, useOnSelectionChange, useReactFlow, useStore } from 'reactflow';
-import { MarkerType } from 'reactflow';
-import '../language/icon/icons.css';
+
 
 export default function Sidebar(props) {
 
@@ -25,24 +24,13 @@ export default function Sidebar(props) {
                 unrelatedEdgesArray.forEach((edge) => {
                     edge.animated = false;
                     edge.style = {}
-                    edge.markerStart = {
-                        type: MarkerType.ArrowClosed,
-                        width: 20,
-                        height: 20,
-                    }
                 })
 
                 relatedEdgesArray.forEach((edge) => {
                     edge.selected = true;
                     edge.animated = true;
                     edge.style = {
-                        stroke: '#570FF2'
-                    }
-                    edge.markerStart = {
-                        type: MarkerType.ArrowClosed,
-                        width: 20,
-                        height: 20,
-                        color: '#570FF2'
+                        stroke: '#FF0072'
                     }
                 })
 
